@@ -57,19 +57,20 @@ c) Reopen XTerm and type the following commands:
 
 d) Now reboot and enojoy the multiboot with Android 2.3 :)
 
-NOTE: If after reboot Android or multiboot don't work, try to launch the NITDroid installer from the main application in order to fix possible issues or missing files/configuration.
+NOTE: If Android or multiboot don't work after reboot, try to launch the NITDroid-installer from the main application in order to fix possible issues or missing files/configuration.
 
 # Troubleshooting
 
 1) bzip2 command not found?
-Download bzip2_1.0.5-3+0m5_armel.deb and libbz2-1.0_1.0.5-3+0m5_armel.deb. Place them to /home/user/MyDocs
+Download bzip2_1.0.5-3+0m5_armel.deb and libbz2-1.0_1.0.5-3+0m5_armel.deb. 
 
-Now install with:
+Place them to /home/users/MyDocs and install with:
 
 > dpkg -i libbz2-1.0_1.0.5-3+0m5_armel.deb bzip2_1.0.5-3+0m5_armel.deb
 
 2) Multiboot not installed correctly?
 Download mtd-utils.deb, liblzo2-2.deb, i2c-tools.deb, multiboot-0.2.11.deb and backupmenu-multiboot-1.2_0.65-1.deb. 
+
 Place them to /home/users/MyDocs and install with:
 
 > dpkg -i mtd-utils.deb liblzo2-2.deb i2c-tools.deb
