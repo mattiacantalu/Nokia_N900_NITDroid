@@ -2,7 +2,6 @@
 Nokia N900 NITDroid multiboot with Android 2.3 Gingerbread 
 
 ![Imgur](https://i.imgur.com/6TELxRQ.jpg?1)
-![Imgur](https://i.imgur.com/fHl0ejE.jpg))
 ![Imgur](https://i.imgur.com/H9oOTsj.jpg)
 
 ## NITDroid Autoinstaller
