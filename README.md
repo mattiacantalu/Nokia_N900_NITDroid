@@ -20,7 +20,27 @@ e) Now reboot and enojoy the multiboot with Android 2.3 :)
 
 ## NITDroid Manual Installation
 
-a.1) Open XTerm and type:
+a) Go to Application Manager -> Application Catalogues -> New and install extras repos:
+
+<p>Catalogue Name - Extras <br>
+Web address - http://repository.maemo.org/extras <br>
+Distribution - fremantle-1.3 <br>
+Components - free non-free <br>
+<p>
+
+<p>Catalogue Name - Extras-Testing <br>
+Web address - http://repository.maemo.org/extras-testing/ <br>
+Distribution - fremantle-1.3 <br>
+Components - free non-free <br>
+<p>
+
+<p>Catalogue Name - Extras-Devel <br>
+Web address - http://repository.maemo.org/extras-devel/ <br>
+Distribution - fremantle-1.3 <br>
+Components - free non-free <br>
+<p>
+  
+b.1) Open XTerm and type:
 > root
 
 > apt-get update
@@ -29,14 +49,14 @@ a.1) Open XTerm and type:
 
 OR
 
-a.2) Copy NITDroid-Installer_0.2.8-8.deb to /home/user/MyDocs
+b.2) Copy NITDroid-Installer_0.2.8-8.deb to /home/user/MyDocs
 > dpkg -i NITDroid-Installer_0.2.8-8.deb
 
 DO NOT LAUNCH THE INSTALLER
 
-b) Close XTerm
+c) Close XTerm
 
-c) Reopen XTerm and type the following commands:
+d) Reopen XTerm and type the following commands:
 
 > root
 
@@ -58,7 +78,7 @@ c) Reopen XTerm and type the following commands:
 
 > dpkg -i /home/user/MyDocs/nitdroid-installer_0.2.7_armel.deb
 
-d) Now reboot and enojoy the multiboot with Android 2.3 :)
+e) Now reboot and enojoy the multiboot with Android 2.3 :)
 
 NOTE: If Android or multiboot don't work after reboot, try to launch the NITDroid-installer from the main application in order to fix possible issues or missing files/configuration.
 
