@@ -1,6 +1,10 @@
 # Nokia_N900_NITDroid
 Nokia N900 NITDroid multiboot with Android 2.3 Gingerbread 
 
+![Imgur](https://i.imgur.com/6TELxRQ.jpg?1)
+![Imgur](https://i.imgur.com/fHl0ejE.jpg))
+![Imgur](https://i.imgur.com/H9oOTsj.jpg)
+
 ## NITDroid Autoinstaller
 
 a) Copy NITDroid's rootfs to /and in /home/user/MyDocs and NITDroid-Installer_0.2.8-8.deb to /home/user/MyDocs
