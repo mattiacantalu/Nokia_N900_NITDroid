@@ -1,0 +1,165 @@
+#!/bin/bash
+
+# freerootfs
+# versione 1.0
+# Libera rootfs N900	
+clear
+dbus-send --type=method_call --dest=org.freedesktop.Notifications /org/freedesktop/Notifications org.freedesktop.Notifications.SystemNoteInfoprint string:"Connessione ad internet . ." && sleep 3
+sudo dbus-send --system --type=method_call --dest=com.nokia.icd /com/nokia/icd com.nokia.icd.connect string:"[ANY]" uint32:0 && sleep 5
+dbus-send --type=method_call --dest=org.freedesktop.Notifications /org/freedesktop/Notifications org.freedesktop.Notifications.SystemNoteInfoprint string:"Verifica della connessione in corso . ." && sleep 5
+wget http://www.google.com -O /tmp/index.google && sleep 10
+
+if [ ! -s /tmp/index.google ];then
+        dbus-send --type=method_call --dest=org.freedesktop.Notifications /org/freedesktop/Notifications org.freedesktop.Notifications.SystemNoteInfoprint string:"Per cortesia assicurati di essere connesso prima di procedere . ." && sleep 5
+        
+else
+	rm -r /tmp/index.google
+        dbus-send --type=method_call --dest=org.freedesktop.Notifications /org/freedesktop/Notifications org.freedesktop.Notifications.SystemNoteInfoprint string:"Connessione in corso . ." && sleep 5
+
+
+echo "Avvio..."
+sleep 5
+echo "Script libera Rootfs"
+fi
+echo "Sei sicuro/a di voler proseguire? [s/n]"
+read risposta
+
+if [ "$risposta" == "s" ]
+then
+echo "OK, partiamo!"
+echo 
+sleep 1
+echo
+echo
+echo "Work in progress"
+echo "..."
+echo ".."
+echo "."
+sleep 2
+echo "Icons ---> Opt"
+echo
+sleep 1
+# Moving icons to /home/opt
+mkdir -p /home/opt/usr/share/icons 2> /dev/null
+cp -r /usr/share/icons/* /home/opt/usr/share/icons
+rm -rf /usr/share/icons && sleep 2
+ln -s /home/opt/usr/share/icons /usr/share/icons
+echo "✔"
+echo
+echo "Video startup ---> Opt" 
+echo
+sleep 1
+# Moving video on start-up to /home/opt
+mkdir -p /home/opt/usr/share/hildon-welcome 2> /dev/null
+cp -r /usr/share/hildon-welcome/* /home/opt/usr/share/hildon-welcome
+rm -rf /usr/share/hildon-welcome && sleep 2
+ln -s /home/opt/usr/share/hildon-welcome /usr/share/hildon-welcome
+echo "✔"
+echo
+echo "Pixmaps ---> Opt" 
+echo
+sleep 1
+# pixmaps to opt
+mkdir -p /home/opt/usr/share/pixmaps 2> /dev/null
+cp -r /usr/share/pixmaps/* /home/opt/usr/share/pixmaps
+rm -r /usr/share/pixmaps && sleep 2
+ln -s /home/opt/usr/share/pixmaps /usr/share/pixmaps
+echo "✔"
+echo
+echo "Apt cache ---> Opt"
+echo
+sleep 1
+# Moving 'apt cache' to /home/opt - Valid until [https://bugs.maemo.org/show_bug.cgi?id=5746 Bug 5746] is fixed.
+mkdir -p /home/opt/var/cache/apt 2> /dev/null
+cp -r /var/cache/apt/* /home/opt/var/cache/apt
+rm -rf /var/cache/apt && sleep 2
+ln -s /home/opt/var/cache/apt /var/cache/apt
+echo "✔"
+echo
+echo "Locales ---> Opt" 
+echo
+sleep 1
+# Moving locales [http://talk.maemo.org/showpost.php?p=568370&postcount=11 Source]
+cp -r /usr/share/locale /opt
+rm -rf /usr/share/locale && sleep 2
+ln -s /opt/locale /usr/share/locale
+echo "✔"
+echo
+#Move some of the pre-installed applications into /opt
+echo "Nokia Maps ---> Opt"
+echo
+sleep 1
+cp -r /usr/share/nokia-maps /home/opt/
+rm -rf /usr/share/nokia-maps && sleep 2
+ln -s /home/opt/nokia-maps /usr/share/nokia-maps
+echo "✔"
+echo
+echo "MicroB Engine ---> Opt"
+echo
+sleep 1
+cp -r /usr/share/microb-engine /home/opt
+rm -rf /usr/share/microb-engine && sleep 2
+ln -s /home/opt/microb-engine /usr/share/microb-engine
+echo "✔"
+echo
+echo "Tutorial Nokia ---> Opt"
+echo
+sleep 1
+cp -r /usr/share/tutorial-applet /home/opt
+rm -rf /usr/share/tutorial-applet && sleep 2
+ln -s /home/opt/tutorial-applet /usr/share/tutorial-applet
+echo "✔"
+echo
+echo "Flashplayer ---> Opt"
+echo
+sleep 1
+cp -r /usr/lib/browser/plugins/libflashplayer.so /opt/usr/lib/
+rm -rf /usr/lib/browser/plugins/libflashplayer.so && sleep 2
+ln -s /opt/usr/lib/libflashplayer.so  /usr/lib/browser/plugins/libflashplayer.so
+echo "✔"
+echo
+echo "Ottimizzo Python..."
+sleep 1
+# echo "Per questo DEVI essere connnessi ad internet ! ! !"
+sleep 5
+echo "..."
+echo ".."
+apt-get install pymaemo-optify & apt-get clean
+echo "✔"
+echo
+sleep 1
+echo
+echo
+echo "fine!"
+echo
+echo
+echo "------CHIUDI LA QWERTY------"
+sleep 5
+echo
+echo "Riavvio N900!--------By adunanzav3x-------- Ciao Ciao!"
+echo "..."
+sleep 5
+reboot
+fi
+
+
+if [ "$risposta" == "n" ]
+then 
+echo "OK, hai detto no"
+echo "Uscita script in..."
+echo "5"
+sleep 1
+echo "4"
+sleep 1
+echo "3"
+sleep 1
+echo "2"
+sleep 1
+echo "1"
+sleep 1
+echo
+echo "Arrivederci By adunanzav3x"
+echo
+sleep 2
+clear
+fi
